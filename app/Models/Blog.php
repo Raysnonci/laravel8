@@ -9,6 +9,9 @@ class Blog extends Model
 {
     use HasFactory;
 
+    // protected $fillable = ['title', 'excerpt', 'body'];
+    protected $guarded = ['id'];
+
     // private static $blog_posts = [
     //     [
     //         'title' => 'First Post',

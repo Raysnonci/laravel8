@@ -14,7 +14,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $posts = Blog::kabeh();
+        $posts = Blog::all();
         return view('blog', ['title' => 'Blog', 'posts' => $posts]);
     }
 
@@ -45,9 +45,9 @@ class BlogController extends Controller
      * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($id)
     {
-        $post = Blog::teang($slug);
+        $post = Blog::findorFail($id);
         
         return view('post', ['title' => $post['title'],'post' => $post]);
     }
